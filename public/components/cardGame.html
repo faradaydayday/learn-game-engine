@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Game Logos</title>
+    <style>
+      body {
+        background-color: #000;
+        font-family: Arial, sans-serif;
+        color: #fff;
+      }
+
+      .logo-table {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        border-radius: 30px;
+      }
+
+      .logo-cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #444;
+        border-radius: 30px;
+        padding: 20px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        background-color: #111;
+      }
+
+      .logo-cell:hover {
+        transform: scale(1.05);
+        background-color: #222;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 40px;
+        color: #eee;
+        transition: color 0.3s ease;
+      }
+
+      h2:hover {
+        color: #fff;
+      }
+
+      .mt-40 {
+        margin-top: 40px;
+      }
+
+      .icon {
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          #0f081b 0%,
+          #0d0718 100%,
+          #0b0614 100%
+        );
+        display: flex;
+        border-radius: 30px;
+        cursor: pointer;
+        color: white;
+        border: 2px solid #555;
+      }
+
+      .icon::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 30px;
+        background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+        z-index: -10;
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .icon p:not(.heading) {
+        font-size: 14px;
+      }
+
+      .icon p:last-child {
+        color: #e81cff;
+        font-weight: 600;
+      }
+
+      .icon:hover::after {
+        filter: blur(30px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="relative z-10 mt-40 py-40" data-aos="fade-up">
+      <div class="max-w-5xl px-4 xl:px-0 mx-auto">
+        <div class="mb-4">
+          <p class="text-neutral-400 text-center hover:text-white">
+            Trusted by developers to create the latest standard games
+          </p>
+        </div>
+        <br class="my-20" />
+        <div class="logo-table gap-24">
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://godotengine.org/assets/press/logo_small_monochrome_dark.png"
+              alt="Godot Engine"
+              style="width: 2000px; height: 55px"
+            />
+          </div>
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://www.incredibuild.com/wp-content/uploads/2021/03/cryengine-1.png"
+              alt="CryEngine logo"
+              style="width: 200px; height: 100px"
+            />
+          </div>
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://gpuopen.com/wp-content/uploads/2022/11/UE_Logo_horizontal_unreal-engine_white.png"
+              alt="Unreal Engine"
+              style="width: 2000px; height: 45px"
+            />
+          </div>
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://static.wixstatic.com/media/b0b90f_a4b7cee69d874e43aee6cd9fd47ad780~mv2.png/v1/fill/w_560,h_168,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/GameMaker_Logo_WhiteTransparent.png"
+              alt="Game Maker"
+              style="width: 200px; height: 100px"
+            />
+          </div>
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://www.cocos.com/_nuxt/img/footer_logo.6de9eb7.png"
+              alt="Cocos Engine"
+              style="width: 2000px; height: 60px"
+            />
+          </div>
+          <div class="logo-cell icon border-opacity-15">
+            <img
+              src="https://s26.q4cdn.com/977690160/files/design/U_Logo_White_RGB.png"
+              alt="Unity Logo"
+              style="width: 2000px; height: 60px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

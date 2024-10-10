@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IncTech</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="cursor-style.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+      .card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 15px;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+      @media (max-width: 768px) {
+  .cards2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .mockup-window {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+      body, html {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+.cards2 {
+  display: flex;
+  gap: 15px;
+}
+.cards2-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+}
+
+.cards2 {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  flex: 0 1 300px;
+  max-width: 100%;
+}
+.cards2 .red {
+  background-color: #f43f5e;
+}
+
+.cards2 .white {
+  background-color: #f8f8f8;
+  color: black;
+}
+
+.cards2 .blue {
+  background-color: #3b22c5;
+}
+
+.cards2 .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  width: 300px;
+  border-radius: 10px;
+  color: rgb(1, 1, 1);
+  cursor: pointer;
+  transition: 400ms;
+  animation-name: scrollLeft;
+  animation: 30s;
+  animation-timing-function:linear ;
+  animation-iteration-count: infinite;
+  animation-delay: -10s;
+}
+
+.cards2 .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards2 .card p.second-text {
+  font-size: .7em;
+}
+
+.cards2 .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards2:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+
+      @keyframes rainbow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .rainbow-button {
+        background: linear-gradient(45deg, #002bff, #7a00ff, #e8e3ea);
+        background-size: 400% 400%;
+        animation: rainbow 15s ease infinite;
+      }
+      .word {
+            display: inline-block;
+            opacity: 0.2;
+            transition: opacity 0.2s ease;
+        }
+        
+    </style>
+  </head>
+  <body class="bg-[#0B0A15] text-white font-inter moving-gradient">
+    <div class="container">
+    
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="goo"
+        version="1.1"
+        width="100%"
+      >
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="6"
+              result="blur"
+            ></feGaussianBlur>
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15"
+              result="goo"
+            ></feColorMatrix>
+            <feComposite
+              in="SourceGraphic"
+              in2="goo"
+              operator="atop"
+            ></feComposite>
+          </filter>
+        </defs>
+      </svg>
+      <div id="cursor"></div>
+      <nav class="fixed w-full top-0 left-0 z-50 bg-[#0B0A15]/80 backdrop-blur-md">
+        <div class="container mx-auto px-4">
+          <div class="flex justify-between items-center py-4">
+            <div class="flex items-center space-x-4">
+              <div class="bg-neutral-900 rounded-md">
+                <div class="flex items-center justify-center p-2 cursor-pointer rounded-md text-neutral-500 hover:text-neutral-100 hover:bg-neutral-800 font-medium relative">
+                  <img class="h-auto w-16" src="./assets/icons/IITC 2024 Logo.png" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 border-[1px] px-16 rounded-full backdrop-blur-2xl backdrop-saturate-100 lg:px-8 lg:py-3 border-opacity-15 border-white" style="background-color: rgba(29, 0, 58, 0.416)">
+              <a href="/" class="text-gray-300 hover:text-white hover:cursor-pointer">Home</a>
+              <a href="#game-card-section" class="text-gray-300 hover:text-white  hover:cursor-pointer">Game Engine</a>
+              <a href="#step-build" class="text-gray-300 hover:text-white  hover:cursor-pointer">Steps</a>
+              <div class="relative group" id="blog-dropdown">
+                <a id="blog-button" class="text-gray-300 hover:cursor-pointer hover:text-white">Blog</a>
+                <!-- Dropdown -->
+                <div class="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg hidden group-hover:block" id="dropdown-menu">
+                  <a href="./unrealEngine.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">Unreal Engine</a>
+                  <a href="./Unity.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">Unity</a>
+                  <a href="./GameMaker.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">GameMaker</a>
+                  <a href="./Godot.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">Godot</a>
+                  <a href="./Cocos.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">Cocos</a>
+                  <a href="./CryEngine.html" class="block px-4 py-2 text-gray-300 hover:bg-gray-700  hover:cursor-pointer">CryEngine</a>
+                </div>
+              </div>
+              <a href="#game-popular" class="text-gray-300 hover:text-white  hover:cursor-pointer">Game Popular</a>
+            </div>
+            <a href="./404/404.html">
+            <button class="bg-gradient-to-t hover:cursor-pointer from-[#8459d6] to-gray-900 text-white font-medium py-2 px-4 rounded-full">Get Started</button>
+          </a>
+          </div>
+        </div>
+      </nav>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const dropdownButton = document.getElementById("blog-button");
+          const dropdownMenu = document.getElementById("dropdown-menu");
+          let isDropdownVisible = false;
+      
+          // Function to show dropdown
+          const showDropdown = () => {
+            dropdownMenu.classList.remove("hidden");
+            isDropdownVisible = true;
+          };
+      
+          // Function to hide dropdown
+          const hideDropdown = () => {
+            dropdownMenu.classList.add("hidden");
+            isDropdownVisible = false;
+          };
+      
+          // Toggle dropdown visibility when clicking the "Blog" button
+          dropdownButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (isDropdownVisible) {
+              hideDropdown();
+            } else {
+              showDropdown();
+            }
+          });
+      
+          // Hide dropdown when clicking outside
+          document.addEventListener("click", (e) => {
+            if (isDropdownVisible && !dropdownMenu.contains(e.target) && e.target !== dropdownButton) {
+              hideDropdown();
+            }
+          });
+      
+          // Prevent dropdown from hiding when clicking inside
+          dropdownMenu.addEventListener("click", (e) => {
+            e.stopPropagation();
+          });
+        });
+      </script>
+      
+      
+      
+      <!-- shadow -->
+      <!-- shadow -->
+      <div class="flex justify-center relative">
+        <div
+          class="w-[650px] h-[650px] mt-[500px] -mb-[850px] bg-purple-500 rounded-full blur-[240px]"
+        ></div>
+      </div>
+  
+      <main  class="pt-80 z-50">
+        <div
+          class="pt-64 absolute inset-0 z-20 container mx-auto px-4 text-center"
+        >
+          <div class="inline-block mb-6">
+            <span
+              class="bg-purple-900/50 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full"
+            >
+              NEW
+            </span>
+            <span class="text-purple-400 text-sm ml-2"
+              >Latest information game building</span
+            >
+          </div>
+          <h1 class="text-9xl md:text-7xl font-bold mb-6">
+            Choose Your Own<br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600"
+            >
+              Most Popular Game Engine
+            </span>
+          </h1>
+          <p class="text-gray-400 text-xl mb-8 max-w-2xl mx-auto">
+            documentation and information on what methods and technologies<br />
+            needed to create a game.
+          </p>
+          <div
+            class="border-[1px] py-2 px-3 max-w-max rounded-[12px] border-opacity-5 mx-auto"
+          >
+          <a href="./404/404.html">
+            <button
+              id="rainbowButton"
+              class=" hover:cursor-pointer rainbow-button text-white font-bold py-2 px-4 rounded-lg shadow-lg transform transition-all duration-500 hover:scale-110"
+            >
+              build your game
+            </button>
+          </a>
+            <script>
+              const button = document.getElementById("rainbowButton");
+              button.addEventListener("mouseenter", () => {
+                button.style.animation = "rainbow 5s ease infinite";
+              });
+              button.addEventListener("mouseleave", () => {
+                button.style.animation = "rainbow 15s ease infinite";
+              });
+            </script>
+          </div>
+        </div>
+        <div data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom">
+          <div class="pt-36">
+   
+            <div
+              class="mockup-window rounded-box hidden md:flex items-center border-beam-container border-[1px] backdrop-blur-2xl opacity-80 backdrop-saturate-100 mx-36 lg:py-2 border-opacity-10 border-white py-8 shadow-[0_-20px_50px_0_rgba(140,69,255,0.4)]"
+              style="background: linear-gradient(180deg, #0f081b 0%, #0d0718 100%, #0b0614 100%);"
+            >
+              <div class="border-beam"></div>
+              <video
+                autoplay
+                loop
+                muted
+                class="h-auto py-4 px-4 items-center opacity-55"
+                src="./assets/gif/aaa.gif.mp4"
+                alt="Dashboard game dev"
+              ></video>
+            </div>
+          
+          <div class="w-full h-96 absolute z-50 -mt-96 -mt-96 bg-gradient-to-t from-[#0d0718] to-transparent"></div>
+          <div class="w-full h-96 bg-[#0d0718] absolute"></div>
+        </div>
+        </div>
+      
+      </main>
+      <script src="script.js"></script>
+      <script src="cursor-script.js"></script>
+
+      <section id="game-card-section"></section>
+      
+      <script>
+        fetch("./components/cardGame.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("game-card-section").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading cardGame.html:", error));
+      </script>
+      <div class="rounded-box hidden md:flex items-center border-[1px] backdrop-blur-2xl opacity-80 backdrop-saturate-100 lg:py-2 border-opacity-10 border-white py-8"
+      style="background: linear-gradient(180deg, #0f081b 0%, #0d0718 100%, #0b0614 100%);">
+     <!-- section quote -->
+     <section class="max-w-7xl px-4 lg:px-9 pt-96 lg:py-24 mx-auto py-96">
+         <blockquote class="max-w-4xl mx-auto">
+             <p class="mb-6 md:text-lg">
+                 <span class="font-semibold text-purple-300">Mike Morheim</span>
+                 <span class="text-neutral-500">
+                     : Co-founder of Unity Technologies and creator of the Unity Engine
+                 </span>
+             </p>
+             <span id="textContainer" class="text-xl sm:text-2xl md:text-3xl md:leading-normal text-white"></span>
+         </blockquote>
+     </section>
+  </div>
+      </div>
+      <script>
+         const space = "\u2800"
+        const text = `Gaming ${space} engine ${space} is ${space} a ${space} software ${space} development ${space} environment,${space} also ${space}referred ${space}to${space} as${space} a${space} game${space} architecture ${space}or${space} game framework, ${space}with${space} settings${space} and ${space}configurations ${space}that${space} optimize${space} and${space} simplify ${space}the ${space}development${space} of${space} video${space} games${space} across${space} a ${space}variety ${space}of${space} programming${space} languages.`;
+        const words = text.split(" ");
+        const container = document.getElementById('textContainer');
+      
+        words.forEach((word, index) => {
+            const span = document.createElement('span');
+            span.textContent = word + " ";
+            span.className = 'word opacity-20'; // Start with low opacity
+            container.appendChild(span);
+        });
+      
+        function updateOpacity() {
+            const rect = container.getBoundingClientRect();
+            const scrollProgress = 1 - (rect.bottom / window.innerHeight);
+            const visibleWords = Math.floor(scrollProgress * words.length * 1.5); // Increase visible words
+      
+            words.forEach((_, index) => {
+                const wordElement = container.children[index];
+                if (index <= visibleWords) {
+                    wordElement.style.opacity = 1;
+                } else {
+                    wordElement.style.opacity = 0.2;
+                }
+            });
+        }
+      
+        window.addEventListener('scroll', updateOpacity);
+        updateOpacity(); // Initial call to set initial state
+      </script>
+      <section class="py-44 my-7">
+        <section class="mx-24">
+          <!-- Section for Unreal Engine and Chart -->
+          <section data-aos="fade-right" class="flex gap-10 mt-12 justify-center items-center">
+            <div
+              class="rounded-[10px] w-[500px] h-auto border-2 border-white tex border-opacity-30 bg-gradient-to-b from-[#3d2b5f] to-transparent"
+             
+            >
+              <img
+                class="h-auto w-[160px] mx-auto my-auto pt-12"
+                src="./assets/icons/unreallogo.png"
+                alt=""
+              />
+              <h3 class="px-10 mt-[40px]  text-white font-semibold">Unreal Engine</h3>
+              <p class="px-10 pb-10 text-white text-opacity-70">
+                Unreal Engine has become a popular choice for game development, producing numerous high-quality games. The number of games created with this engine has shown significant growth over the past years.
+              </p>
+            </div
+      
+            <!-- Chart Container -->
+            <div class="mockup-window rounded-[10px] w-full h-[475px] bg-gradient-to-b from-[#25183e] to-transparent flex justify-center items-center border border-white border-opacity-35 overflow-hidden">
+              <div id="content-chart" class="h-full w-full flex justify-center items-center p-5"></div>
+          </div>
+          
+          <!-- Script untuk Chart -->
+          <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+          
+          <script>
+              const chartConfig = {
+                  series: [
+                      {
+                          name: "Number of Games Created",
+                          data: [500, 900, 2000, 3000, 800, 6500, 4000, 1000, 1500, 10000, 8000, 6000, 9000], // Menyesuaikan data agar menunjukkan pola naik turun dari 2014-2021
+                      },
+                  ],
+                  chart: {
+                      type: "line",
+                      height: 300,
+                      toolbar: {
+                          show: false,
+                      },
+                      zoom: {
+                          enabled: false // Menonaktifkan zoom jika diperlukan
+                      }
+                  },
+                  title: {
+                      text: "Growth of Games Created with Unreal Engine",
+                      align: "center",
+                      style: {
+                          fontSize: "18px",
+                          fontWeight: "bold",
+                          color: "#FFF4EA",
+                      },
+                  },
+                  colors: ["#4535C1"],
+                  stroke: {
+                      lineCap: "round",
+                      curve: "smooth",
+                  },
+                  markers: {
+                      size: 7,
+                      shape: "circle",
+                      colors: ["#FFF4EA"],
+                      strokeColors: "#FFF",
+                      strokeWidth: 2,
+                      hover: {
+                          size: 9,
+                      },
+                  },
+                  xaxis: {
+                      axisTicks: {
+                          show: false,
+                      },
+                      axisBorder: {
+                          show: false,
+                      },
+                      labels: {
+                          style: {
+                              colors: "#FFF4EA",
+                              fontSize: "12px",
+                              fontFamily: "inherit",
+                              fontWeight: 400,
+                          },
+                      },
+                      categories: [
+                          "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "(UE 5 Release)", "2023", "2024 (Fluctuates)", "2025 (Fluctuates)"
+                      ],
+                  },
+                  yaxis: {
+                      labels: {
+                          style: {
+                              colors: "#FFF4EA",
+                              fontSize: "12px",
+                              fontFamily: "inherit",
+                              fontWeight: 400,
+                          },
+                      },
+                  },
+                  grid: {
+                      show: true,
+                      borderColor: "#444444",
+                      strokeDashArray: 5,
+                      xaxis: {
+                          lines: {
+                              show: true,
+                          },
+                      },
+                      padding: {
+                          top: 10,
+                          left: 30,
+                          right: 30,
+                          bottom: 20,
+                      },
+                  },
+                  fill: {
+                      opacity: 0.6,
+                  },
+                  tooltip: {
+                      theme: "dark",
+                  },
+                  annotations: {
+                      xaxis: [
+                          {
+                              x: "2022 (Most Games Created)",
+                              borderColor: "#00E396",
+                              label: {
+                                  borderColor: "#00E396",
+                                  style: {
+                                      color: "#fff",
+                                      background: "#00E396",
+                                  },
+                                  text: "Most Games Created",
+                              },
+                          },
+                          {
+                              x: "2024 (Fluctuates)",
+                              borderColor: "#FF4560",
+                              label: {
+                                  borderColor: "#FF4560",
+                                  style: {
+                                      color: "#fff",
+                                      background: "#FF4560",
+                                  },
+                                  text: "Fluctuates in 2024",
+                              },
+                          },
+                          {
+                              x: "2025 (Fluctuates)",
+                              borderColor: "#FEB019",
+                              label: {
+                                  borderColor: "#FEB019",
+                                  style: {
+                                      color: "#fff",
+                                      background: "#FEB019",
+                                  },
+                                  text: "Fluctuates in 2025",
+                              },
+                          },
+                      ],
+                  },
+              };
+          
+              // Render the chart inside the new div with ID 'content-chart'
+              const chart = new ApexCharts(document.querySelector("#content-chart"), chartConfig);
+              
+              chart.render();
+          </script>
+          
+          
+  
+        
+        </section>
+      </section>
+  
+      <section class="mx-24">
+        <!-- Section for Unity and Chart -->
+        <section data-aos="fade-left" class="flex gap-10 mt-12 justify-center items-center">
+            <!-- Chart Container for Unity -->
+            <div class="mockup-window rounded-[10px] w-full h-[475px] bg-gradient-to-b from-[#25183e] to-transparent flex justify-center items-center border border-white border-opacity-35 overflow-hidden">
+              <div id="unity-chart" class="h-full w-full flex justify-center items-center p-5"></div>
+          </div>
+    
+            <!-- Section for Unity Engine Details -->
+            <div class="rounded-[10px] w-[500px] h-[475px] border-2 border-white border-opacity-30 bg-gradient-to-b from-[#3d2b5f] to-transparent ">
+                <img
+                    class="h-auto w-[160px] mx-auto my-auto pt-12"
+                    src="./assets/images/Frame 1.png"
+                    alt=""
+                />
+                <h3 class="px-10 mt-[40px] text-white font-semibold">Unity Engine</h3>
+                <p class="px-10 pb-16 text-white text-opacity-70">
+                    Unity is widely recognized for its versatility and ease of use in both 2D and 3D game development. Over the years, the number of games created with Unity has been steadily increasing
+                </p>
+            </div>
+        </section>
+    
+        <!-- Script for Unity Chart -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script>
+           const unityChartConfig = {
+        series: [
+            {
+                name: "Number of Games Created",
+                data: [300, 700, 1200, 2400, 1800, 3500, 4200, 3200, 5000, 7000, 9000, 8500, 10000], // Data Unity yang menunjukkan pertumbuhan
+            },
+        ],
+        chart: {
+            type: "line",
+            height: 300,
+            toolbar: {
+                show: false,
+            },
+            zoom: {
+                enabled: false // Menonaktifkan zoom
+            }
+        },
+        title: {
+            text: "Growth of Games Created with Unity Engine",
+            align: "center",
+            style: {
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "#FFF4EA",
+            },
+        },
+        colors: ["#7E60BF"],
+        stroke: {
+            lineCap: "round",
+            curve: "smooth",
+        },
+        markers: {
+            size: 7,
+            shape: "circle",
+            colors: ["#FFF4EA"],
+            strokeColors: "#FFF",
+            strokeWidth: 2,
+            hover: {
+                size: 9,
+            },
+        },
+        xaxis: {
+            axisTicks: {
+                show: false,
+            },
+            axisBorder: {
+                show: false,
+            },
+            labels: {
+                style: {
+                    colors: "#FFF4EA",
+                    fontSize: "12px",
+                    fontFamily: "inherit",
+                    fontWeight: 400,
+                },
+            },
+            categories: [
+                "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024 (Fluctuates)", "2025 (Fluctuates)"
+            ],
+        },
+        yaxis: {
+            labels: {
+                style: {
+                    colors: "#FFF4EA",
+                    fontSize: "12px",
+                    fontFamily: "inherit",
+                    fontWeight: 400,
+                },
+            },
+        },
+        grid: {
+            show: true,
+            borderColor: "#444444",
+            strokeDashArray: 5,
+            xaxis: {
+                lines: {
+                    show: true,
+                },
+            },
+            padding: {
+                top: 10,
+                left: 30,
+                right: 30,
+                bottom: 20,
+            },
+        },
+        fill: {
+            opacity: 0.6,
+        },
+        tooltip: {
+            theme: "dark",
+        },
+        annotations: {
+            xaxis: [
+                {
+                    x: "2022",
+                    borderColor: "#00E396",
+                    label: {
+                        borderColor: "#00E396",
+                        style: {
+                            color: "#fff",
+                            background: "#00E396",
+                        },
+                        text: "Rapid Growth",
+                    },
+                },
+                {
+                    x: "2024 (Fluctuates)",
+                    borderColor: "#FF4560",
+                    label: {
+                        borderColor: "#FF4560",
+                        style: {
+                            color: "#fff",
+                            background: "#FF4560",
+                        },
+                        text: "Fluctuates in 2024",
+                    },
+                },
+                {
+                    x: "2025 (Fluctuates)",
+                    borderColor: "#FEB019",
+                    label: {
+                        borderColor: "#FEB019",
+                        style: {
+                            color: "#fff",
+                            background: "#FEB019",
+                        },
+                        text: "Fluctuates in 2025",
+                    },
+                },
+            ],
+        },
+    };
+
+    // Render the Unity chart inside the new div with ID 'unity-chart'
+    const unityChart = new ApexCharts(document.querySelector("#unity-chart"), unityChartConfig);
+    
+    unityChart.render();
+        </script>
+    </section>
+    
+      
+          </section>
+         
+     
+     <main data-aos="fade-up" class="py-60 my-7">
+      <div>
+        <section id="step-build" class="flex justify-center items-center min-h-screen" style="margin-top: -300px;">
+          <div class="relative w-1/4 px-8 py-4">
+            <h1
+            class=" font-bold mb-28 text-transparent bg-clip-text bg-gradient-to-r from-purple-100 to-purple-600"
+            style="font-size: 50px; text-align: center; "
+          >
+            Steps  Build Game
+          </h1>
+            <!-- Garis vertikal -->
+            <div class="absolute left-2/4 -translate-x-2/4 h-full w-0.5 bg-gray-300"></div>
+            <div class="absolute left-2/4 -translate-x-2/4 h-1/5 w-0.5 bg-gray-300 transition-all duration-500"></div>
+        
+            <!-- Step 1 -->
+           <div class="grid grid-cols-3" >
+            <div>Set Up Your Project</div>
+            <div class="relative z-10 flex items-center mb-[150px]">
+              <div class="absolute left-2/4 top-0 -translate-x-2/4 grid w-10 h-10 font-bold text-gray-900 bg-gray-300 rounded-full place-items-center">
+                1
+              </div>
+            </div>
+            <img src="https://www.gollahalli.com/img/blog/NewProject.png" alt="New Project example" class="scale-200" style="margin-left: 40px;">
+        
+            <!-- Step 2 -->
+            <div>
+              <img src="https://gamedevacademy.org/wp-content/uploads/2020/05/Snag_121caee7.png" alt="example" class="scale-50 -ml-[180px] -mt-20 absolute" style="margin-right: 100px;"/>
+            </div>
+            <div class="relative z-10 flex items-center mb-[150px]">
+              <div class="absolute left-2/4 top-0 -translate-x-2/4 grid w-10 h-10 font-bold text-gray-900 bg-gray-300 rounded-full place-items-center">
+                2
+              </div>
+            </div>
+            <div>Create Game Objects and Scenes</div>
+        
+            <!-- Step 3 -->
+            <div>Implement Game Mechanics</div>
+            <div class="relative z-10 flex items-center mb-[150px]">
+              <div class="absolute left-2/4 top-0 -translate-x-2/4 grid w-10 h-10 font-bold text-gray-900 bg-gray-300 rounded-full place-items-center">
+                3
+              </div>
+            </div>
+            <div>
+              <img src="https://d3kjluh73b9h9o.cloudfront.net/optimized/3X/9/f/9f552cc49441193398389fb2baa1287663b0e638_2_689x417.jpeg " alt="car" class="scale-50 -ml-[90px] -mt-20 absolute"/>
+            </div>
+        
+            <!-- Step 4 -->
+            <div >
+              <img src="https://i.ytimg.com/vi/xNKwsJGv--k/maxresdefault.jpg" alt="user interface example" class="scale-50 -ml-[180px] -mt-20 absolute"/>
+            </div>
+            <div class="relative z-10 flex items-center mb-[150px]">
+              <div class="absolute left-2/4 top-0 -translate-x-2/4 grid w-10 h-10 font-bold text-gray-900 bg-gray-300 rounded-full place-items-center">
+                4
+              </div>
+            </div>
+            <div>Add User Interface</div>
+        
+            <!-- Step 5 -->
+            <div>Test and Debug</div>
+            <div class="relative z-10 flex items-center ">
+              <div class="absolute left-2/4 top-0 -translate-x-2/4 grid w-10 h-10 font-bold text-gray-900 bg-gray-300 rounded-full place-items-center">
+                5
+              </div>
+            </div>
+            <div>
+              <img src="https://cdn1.epicgames.com/ue/product/Screenshot/screenshot-1-1920x1080-1b6a636d14011e16e6ff3eb19827eb87.png?resize=1&w=1920" alt="Test and debug example" class="scale-200" style="margin-left: 60px;">
+            </div>
+           </div>
+          </div>
+        </section >
+      </div>
+   </main>
+   <main id="game-popular" class="mb-9" >
+   <h1
+           class=" font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-purple-800"
+           style="font-size: 50px; text-align: center; margin-top: 300px;"
+         >
+           Game Used Popular Engine
+         </h1>
+  <div data-aos="fade-up" class="cards2 grid grid-cols-4  " >
+      <div class="card">
+        <img
+        src="https://cdn1.epicgames.com/ark/offer/EGS_ARKSurvivalEvolved_StudioWildcard_S1-2560x1440-c316afb7c33a9dfb892eef6b99169e43.jpg"
+        alt="Godot Engine"
+        style="border-radius: 15px;"
+        >
+      </div>
+      
+      <div class="card ">
+          <img src="https://static.wixstatic.com/media/cc2968_2b6336f1ea644250ae6bf0f9ff5f23f3~mv2.png/v1/fill/w_1000,h_563,al_c,q_90,usm_0.66_1.00_0.01/cc2968_2b6336f1ea644250ae6bf0f9ff5f23f3~mv2.png" alt=""
+          style="border-radius: 15px;">
+          
+      </div>
+  
+      <div class="card ">
+          <img src="https://i2.wp.com/images.indianexpress.com/2024/07/Fortnite-Epic-Games.jpg?ssl=1" alt=""
+          style="border-radius: 15px;">
+      </div>
+  
+      <div class="card ">
+        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2322010/capsule_616x353.jpg?t=1726774417"
+        alt="God Of War"
+        style="border-radius: 15px;"
+      />
+      </div>
+      <div class="card">
+        <img
+        src="https://p325k7wa.twic.pics/high/little-nightmares/little-nightmares/07-retailers/LN_KeyArt.png?twic=v1/step=10/quality=80/max=760"
+        alt="Godot Engine"
+        style="border-radius: 15px;"
+        >
+      </div>
+      
+      <div class="card ">
+          <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/807290/ss_b85febde8d0c14be489a9b0d1544c9be372f0c70.1920x1080.jpg?t=1708064701" alt=""
+          style="border-radius: 15px;">
+          
+      </div>
+    
+      <div class="card ">
+          <img src="https://www.letemsvetemapplem.eu/wp-content/uploads/2024/07/Far-Cry-6-6.jpg" alt=""
+          style="border-radius: 15px;">
+      </div>
+    
+      <div class="card ">
+        <img src="https://media.contentapi.ea.com/content/dam/eacom/jedi-fallen-order/common/wallpapers/star-wars-jedi-wallpaper-16x9-2.jpg"
+        alt="God Of War"
+        style="border-radius: 15px;"
+      />
+      </div>
+  </div>
+
+  <!-- baris ke 2 -->
+  <div data-aos="fade-left" >
+  </div>
+     </main>
+     <!-- latest update -->
+     <footer class="footer  text-base-content p-10" style="margin-top: 200px; background: linear-gradient(180deg, #0e0d1b 0%, #251446 100%, #3a2264 100%);">
+    <aside>
+      <img src="./assets/images/WhatsApp Image 2024-09-30 at 13.12.39_0594609a-Photoroom.png" width="60"
+      height="60"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      class="fill-current">
+      <p>
+        Intech Industries Ltd.
+        <br />
+         2024 product
+      </p>
+    </aside>
+    <nav>
+      <h6 class="footer-title">Services</h6>
+      <a class="link link-hover">Branding</a>
+      <a class="link link-hover">Design</a>
+      <a class="link link-hover">Marketing</a>
+      <a class="link link-hover">Advertisement</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Company</h6>
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Jobs</a>
+      <a class="link link-hover">Press kit</a>
+    </nav>
+    <nav>
+      <h6 class="footer-title">Legal</h6>
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </nav>
+  </footer>
+  <script>
+   AOS.init({
+    duration: 2000,
+  })
+  
+  </script>
+    </div>
+  </body>
+</html>

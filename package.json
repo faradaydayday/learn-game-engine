@@ -1,0 +1,28 @@
+{
+  "name": "learn-game-engine",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+    "serve": "live-server public",
+    "start": "concurrently \"npm run build:css\" \"npm run serve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.0.1",
+    "daisyui": "^4.12.10",
+    "live-server": "^1.2.2",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
+  },
+  "dependencies": {
+    "@material-tailwind/html": "^2.3.2",
+    "apexcharts": "^3.53.0",
+    "preline": "^2.5.0"
+  }
+}

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navbar-link {
+    @apply text-gray-300 hover:text-white transition duration-300;
+  }
+}
+

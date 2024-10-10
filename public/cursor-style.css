@@ -1,0 +1,45 @@
+/* cursor-style.css */
+:root {
+  --cursor-size: 28px;
+  --bg: #0b0a15; /* Changed to match your dark background */
+}
+
+#cursor {
+  position: fixed;
+  top: calc(var(--cursor-size) * -0.5);
+  left: calc(var(--cursor-size) * -0.5);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  filter: url(#goo);
+  z-index: 9999; /* Ensure it's above other elements */
+}
+
+.cursor-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: var(--cursor-size);
+  background: #8e35f0; /* Changed to match your primary color */
+  transform-origin: center center;
+}
+
+.goo {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+/* Show default cursor on interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  cursor: auto;
+}
